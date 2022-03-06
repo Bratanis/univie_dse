@@ -18,11 +18,12 @@ This repository is the **Private** repository. Use it to work on and upload, for
 
 # What folders are given and what are they for?
 
-We have added some predefined folders for you. Use them to hand in/upload your programming task submission for the respective programming task exercise. While doing so please ensure:
+We have added some predefined folders for you. Use them to hand in/upload your programming task submission for the respective programming task exercise. While doing so, please ensure:
 
-- That the implementation of the programming task is complete, compiles, and is executable.
-- That you have stored at most one programming task implementation in each folder. Use the one which you want us to take into account for grading. Please store additonal attempts from other programming tasks in a separate independent folder (i.e., not the predefined ones).
-- Please do not rename or change the predefined folders. Enable us to determine what task you have tackled by adding a short readme to your implementation. Let it clearly denote which programming task you tried to tackle. For example, by giving the name of the related lecture in the readme. 
+- The implementation of the programming task is complete, compiles, and is executable.
+- That you have stored at most two programming task implementations in each of the "to be graded" folders. Add only the attempts you want us to consider for grading. Please store additional attempts from other programming tasks in a separate independent folder. We have already provided a specialized folder for this.
+- Please do not rename or change the predefined folders. Enable us to determine what task you have tackled by adding a short readme to your implementation or name the project folders accordingly (e.g., Programming Task 1). Ensure that the given information denotes which programming task you tried to tackle.
+- If you add or tackle multiple programming tasks, create separate projects for them.
 
 # How do I get local access to this repository?
 
@@ -44,22 +45,27 @@ Clone this repository as indicated above. Then you can interact with it based on
 
 Use your **real name** (i.e., not a nickname or an abbreviation) and your official **university mail address** (mandatory). Further, we recommend that you and your team members organize their efforts (e.g., work packages and their assignment) but also critical communication (e.g., if team members are unresponsive) here in GitLab using Git issues.
 
-# How are questions handled?
+# How are questions handled and how is support provided?
 
-For general inquiries (which are relevant for multiple teams) please use the Moodle forums. In case of individual inquiries please contact our **tutors first**. For this create a GitLab issue and add the tutor's GitLab handle:
+The `Tips and Recommendations` collection on Moodle gives an overview of different scenarios and recommended ways to contact us and get support. In the following, a short overview will be provided. In addition to the asynchronous methods listed below, synchronous QA slots are available:
 
-- Kevin Miller (git handle @millerk97)
+- For general inquiries (which you deem relevant for **multiple teams**) please use the **Moodle forums**. In case of individual questions (which you deem relevant for **one person or team**), we recommend using **GitLab issues**. 
 
-If our tutors are unable to provide assistance they will forward your inquiry to the relevant supervisor. 
+- Contact our **tutor first**. Especially for questions related to the implementation of the assignment or programming tasks. If our tutors cannot assist, they will forward your inquiry to the relevant supervisor. 
 
-For **exceptional situations**, such as, team building issues you can also contact your supervisor directly. Based on experience most Git issues are not related to us and instead focus on internal team communication. Hence, if you want to contact a tutor or supervisor, always use their Git handles in your issues such that the respective person is notified about your inquiry by GitLab.
+- To contact our tutors, create a GitLab Issue and add one of the following Git handles into your issue description text. The subsequently listed tutor(s) are available: `Kevin Miller (Git handle @millerk97)`
 
-Your **team supervisor** can be identified based on your team’s id.
+For **exceptional situations**, such as team-building issues, you can also contact your supervisor directly. The latter also applies to **high-level questions** on the assignment or the programming tasks. For example, if you see multiple design options and are unsure which one to use. Here, the experience of your supervisor can be tapped to guide you on your DSE journey. 
 
-- For teams `1XX` the supervisor is Kristof Böhmer (git handle @boehmek2). 
-- For teams `2XX` the supervisor is Georg Simhandl (git handle @georgs74). 
+Your **supervisor** can be identified based on your team’s id.
 
-Use these respective GitLab handles to specifically address a person in a Git issue. For this add the GitLab handle into the issue description. As a last resort, you can contact the course [email](mailto:dse@swa.univie.ac.at). 
+- For teams `1XX`, the supervisor is Kristof Böhmer (Git handle @boehmek2). 
+- For teams `2XX`, the supervisor is Georg Simhandl (Git handle @georgs74). 
+- For teams `3XX`, the supervisor is Georg Kaes (Git handle @kaesg9). 
+
+**If nobody responds**: Based on your experience, most Git issues are not related to us and instead focus on internal team communication. Hence, if you want to contact a tutor or supervisor, **always use their Git handles in your issues description text**. Such that the respective person is notified about your inquiry by GitLab. To repeat: Do not assign a Git issue. We are only notified if you add the Git handle directly into the description text. 
+
+As a last resort, you can contact the course [email](mailto:dse@swa.univie.ac.at) or tutor [email](mailto:dse.tutor@swa.univie.ac.at). 
 
 # Which functions should not be used?
 
