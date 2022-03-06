@@ -14,7 +14,7 @@ The content upload (commited **&** pushed) to the team repository will be monito
 
 # Is this repository the **Team** or the **Private** respository?
 
-This repository is the **Private** repository. Use it to work on and upload, for example, your programming task results. Only you are able to access this respository. 
+This repository is the **Private** repository. Use it to work on and upload, for example, your programming task results. Only you can access this repository.
 
 # What folders are given and what are they for?
 
