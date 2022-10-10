@@ -22,7 +22,7 @@ We have added some predefined folders for you. Use them to hand in/upload your p
 
 - The implementation of the programming task is complete, compiles, and is executable.
 - That you have stored at most two programming task implementations in each of the "to be graded" folders. Add only the attempts you want us to consider for grading. Please store additional attempts from other programming tasks in a separate independent folder. We have already provided a specialized folder for this.
-- Please do not rename or change the predefined folders. Enable us to determine what task you have tackled by adding a short readme to your implementation or name the project folders accordingly (e.g., Programming Task 1). Ensure that the given information denotes which programming task you tried to tackle.
+- Please do not rename or change the predefined folders. Enable us to determine what task you have tackled by adding a short ReadMe to your implementation or name the project folders accordingly (e.g., Programming Task 1). Ensure that the given information denotes which programming task you tried to tackle.
 - If you add or tackle multiple programming tasks, create separate projects for them. **Do not** store or upload your submissions (including code) in compressed files (i.e., **no** .zip, **no** .rar, **no** .7z etc.).
 
 # How do I get local access to this repository?
@@ -53,7 +53,9 @@ The `Tips and Recommendations` collection on Moodle gives an overview of differe
 
 - Contact our **tutor first**. Especially for questions related to the implementation of the assignment or programming tasks. If our tutors cannot assist, they will forward your inquiry to the relevant supervisor. 
 
-- To **contact our tutors**, create a GitLab Issue and add one of the following Git handles into your issue description text. The subsequently listed tutor(s) are available: `Kevin Miller (Git handle @millerk97)`
+- To **contact our tutors**, create a GitLab Issue and add one of the following Git handles into your issue description text. The subsequently listed tutor(s) are available: 
+
+    - `Samuel Mitterrutzner (Git handle @samuelm00)`
 
 For **exceptional situations**, such as team-building issues, you can also contact your supervisor directly. The latter also applies to **high-level questions** on the assignment or the programming tasks. For example, if you see multiple design options and are unsure which one to use. Here, the experience of your supervisor can be tapped to guide you on your DSE journey. 
 
