@@ -2,19 +2,9 @@
 
 # What is GIT used for?
 
-In this course, unless otherwise explicitly stated, your exercises will be submitted via GitLab. The last commit pushed before the deadline to the master branch on GitLab is decisive for the evaluation, grading, and feedback. For the team assignment feedback will be provided on GitLab in a **DESIGN or FINAL** (team repository) milestone. To access these milestones check out the toolbar entry on the left named “Tickets” in German or “Issues” in English. The achieved points will be published using Moodle. The latter, i.e., Moodle will also cover your **Programming Tasks** feedback.
+In this course, unless otherwise explicitly stated, your exercises will be submitted via GitLab. The last commit pushed before the deadline to the master branch on GitLab is decisive for the evaluation, grading, and feedback. You can also use this repository to prepare the presentation of programming task attempts for bonus points and feedback. Simply push your current state to this repository before the presentation and the build in code highlighting makes it easy do navigate and check out your attempt right here in GitLab. Achieved points will be published using Moodle. The latter, i.e., Moodle will also cover your **Programming Tasks** feedback.
 
 **Do not change the name of the master branch**: it must be called master. Only data that is in the master branch before the deadline (therefore committed and pushed before the deadline) will be taken into account during the submission interviews and evaluation. Double check that you use the correct repository (i.e., the one relevant for this semester and this course). 
-
-# Why were two different repositories assigned to me?
-
-We provide each student with two repositories. A **Team** repository and a **Private** repository. Check out the repository name to determine which one you are currently using. The team repository must be used by you and your team to submit and work on the assignment. In comparison, the private repository will only be available to you alone. Your team members will not be able to access it. You can use it, for example, to prepare drafts that you feel not yet ready to share with your team, to upload your programming task or worksheet progress, to receive tips and feedback from the tutors or lecturers on such uploads etc. For the latter aspect please start by contacting our tutors by creating a Git Issue.
-
-The content upload (commited **&** pushed) to the team repository will be monitored and taken into account while grading. Uploads to the private repository will **only** be taking into account while grading with regards to the programming task uploads. 
-
-# Is this repository the **Team** or the **Private** respository?
-
-This repository is the **Private** repository. Use it to work on and upload, for example, your programming task results. Only you can access this repository.
 
 # What folders are given and what are they for?
 
