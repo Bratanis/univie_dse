@@ -13,7 +13,7 @@ We have added some predefined folders for you. Use them to hand in/upload your p
 - The implementation of the programming task is complete, compiles, and is executable.
 - That you have stored your programming task implementations in the matching "to be graded" folders. Add only the attempts you want us to consider for grading there. Please store additional incomplete attempts from other programming tasks in a separate independent folder. We have already provided a specialized folder for this.
 - Please do not rename or change the predefined folders. Enable us to determine what task you have tackled by adding a short ReadMe to your implementation and name the project folders accordingly (e.g., Programming Task 1, Concurrency, etc.). Ensure that the given information denotes which programming task you tried to tackle. 
-- If you add or tackle multiple programming tasks, create separate projects for them. **Do not** store or upload your submissions (including code) in compressed files (i.e., **no** .zip, **no** .rar, **no** .7z, etc.).
+- If you add or tackle multiple programming tasks, create separate projects for them. **Do not** store or upload your submissions (including code) in compressed files (i.e., **no** .zip, **no** .rar, **no** .7z, etc.). We must be able to import (and run) your project in Eclipse.
 - Cover each programming task with precisely one project. Example: Programming task two focuses on UDP and TCP. Still, it must be covered in one project, and the logic for both (UDP/TCP) must be placed in one project folder. You can use, e.g. packages to separate different classes and components inside a project.
 
 # How do I get local access to this repository?
