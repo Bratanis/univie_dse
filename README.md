@@ -60,6 +60,9 @@ As a last resort, you can contact the course [email](mailto:dse@swa.univie.ac.at
 
 We will support you by publishing feedback and grades/points (both on Moodle) on your programming task attempts during the semester. You can find both in your DSE Moodle course grade book. 
 
+In addition you can attend the programming task focussed lecture slots to present your attempts, receive feedback and discuss your ideas with your supervisor.
+
+
 # Which functions should not be used?
 
 GitLab is a powerful software that allows you to customize numerous settings and choose from various features. We would advise you to treat these settings and features with **respect and care**. For example, by simply clicking on each button, ignoring warnings etc. one could delete this repositorie’s master branch for good (no we can’t restore it eather). So: Think before you click!
