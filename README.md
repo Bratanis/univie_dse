@@ -34,7 +34,7 @@ Clone this repository as indicated above. Then you can interact with it based on
 
 > `git config --global user.email a123456@univie.ac.at`
 
-Use your **real name** (i.e., not a nickname or an abbreviation) and your official **university mail address** (mandatory). Further, we recommend that you and your team members organize their efforts (e.g., work packages and their assignment) but also critical communication (e.g., if team members are unresponsive) here in GitLab using Git issues.
+Use your **real name** (i.e., not a nickname or an abbreviation) and your official **university mail address** (mandatory).
 
 # How are questions handled and how is support provided?
 
