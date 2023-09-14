@@ -52,7 +52,7 @@ In case of **high-level questions** on the programming tasks and their assigment
 
 Your **supervisor** will switch during the semester. Till the first exam, your supervisor is `Kristof Böhmer (Git handle @boehmek2)`; afterwards, it will be `Georg Simhandl (Git handle @georgs74)`.
 
-**If nobody responds**: Based on our experience, most Git issues are not related to us and instead focus on internal team communication. Hence, if you want to contact a tutor or supervisor, **always use their Git handles in your issues description text**. Such that the respective person is notified about your inquiry by GitLab. To repeat: Do not assign a Git issue. We are only notified if you add the Git handle directly into the description text. **Do not use** @all as this would notify all supervisors, including those that are not relevant for you.
+**If nobody responds**: If you want to contact a tutor or supervisor, **always use their Git handles in your issues description text**. Such that the respective person is notified about your inquiry by GitLab. To repeat: Do not assign a Git issue. We are only notified if you add the Git handle directly into the description text. **Do not use** @all as this would notify all supervisors, including those that are not relevant for you.
 
 As a last resort, you can contact the course [email](mailto:dse@swa.univie.ac.at) or tutor [email](mailto:dse.tutor@swa.univie.ac.at). 
 
