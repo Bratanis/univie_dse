@@ -18,17 +18,17 @@ We have added some predefined folders for you. Use them to hand in/upload your p
 
 # How do I get local access to this repository?
 
-To work optimally with this repository, you should mirror it to your local workstation. To do this, use the `git clone <yourRepoUrl>` command. To get hold of the required repository URL scroll up till you see a blue button labeled Clone - click it. Select the URL provided by “Clone with HTTPS”. This should be similar to https://git01lab.cs.univie.ac.at/......
+To work optimally with this repository, you should mirror it to your local workstation. To do this, use the `git clone <yourRepoUrl>` command. To get hold of the required repository URL, scroll until you see a blue button labelled Clone - click it. Select the URL provided by “Clone with HTTPS”. This should be similar to https://git01lab.cs.univie.ac.at/......
 
-An alternative would be “Clone with SSH”. We typically only recommend it if you have already a bit of experience with Git and SSH. For example, because this would require you to create public and private keys for authentication reasons.  
+An alternative would be “Clone with SSH”. We typically only recommend it if you already have some experience with Git and SSH. For example, this would require you to create public and private keys for authentication reasons.  
 
-**Problems with the certificates**: If you are experiencing problems cloning your Git repository and you are experiencing problems with certificate validation, a quick solution is to turn it off (as a last resort). You can use the following command: git config --global http.sslVerify false
+**Problems with the certificates**: If you are experiencing problems cloning your Git repository and you are experiencing issues with certificate validation, a quick solution is to turn it off (as a last resort). You can use the following command: git config --global http.sslVerify false
 
-If you work concurrently on multiple programming tasks the use of branches and branching based **source code management strategies** is recommended. The assignment provides tips and recommendations on this area. If you want to learn about branches in a relaxed tutorial environment we recommend to check out https://try.github.io/ Dont'f forget to merge, before the deadline, each relevant branch back into the master branch when a programming task implementation was completed.
+If you work concurrently on multiple programming tasks, using branches and branch-based **source code management strategies** is recommended. The assignment provides tips and recommendations on this area. If you want to learn about branches in a relaxed tutorial environment, we recommend: https://try.github.io/ Don't forget to merge, before the deadline, each relevant branch back into the master branch when a programming task implementation was completed.
 
 # How do I use this repository?
 
-Clone this repository as indicated above. Then you can interact with it based on standard git commands, such as, `git add`, `commit`, `push`, `checkout` etc. To do so you will need to specify your name and email address after the initial clone. This information is subsequently automatically used during each commit. Use the following commands to do so:
+Clone this repository as indicated above. Then you can interact with it based on standard git commands, such as `git add`, `commit`, `push`, `checkout` etc. To do so, you must specify your name and email address after the initial clone. This information is subsequently automatically used during each commit. Use the following commands to do so:
 
 > `git config --global user.name "My name"`
 
@@ -48,11 +48,11 @@ The `Tips and Recommendations` collection on Moodle gives an overview of differe
 
     - `Samuel Mitterrutzner (Git handle @samuelm00)`
 
-In case of **high-level questions** on the programming tasks and their assigments, you can also contact your supervisor directly. For this you can attend, e.g., the weekly UE slots and present programming task approaches or receive tips and recommendations. For example, if you see multiple design options and are trying to decide which one to use. Here, the experience of your supervisor can be tapped to guide you on your DSE journey. For weeks without UE slots, you can also use **GitLab issues** to contact them.
+In case of **high-level questions** on the programming tasks and their assignments, you can also contact your supervisor directly. For this, you can attend, e.g., the weekly UE slots and present programming task approaches or receive tips and recommendations. For example, if you see multiple design options and are trying to decide which one to use. Here, the experience of your supervisor can be tapped to guide you on your DSE journey. For weeks without UE slots, you can also use **GitLab issues** to contact them.
 
 Your **supervisor** will switch during the semester. Till the first exam, your supervisor is `Kristof Böhmer (Git handle @boehmek2)`; afterwards, it will be `Georg Simhandl (Git handle @georgs74)`.
 
-**If nobody responds**: If you want to contact a tutor or supervisor, **always use their Git handles in your issues description text**. Such that the respective person is notified about your inquiry by GitLab. To repeat: Do not assign a Git issue. We are only notified if you add the Git handle directly into the description text. **Do not use** @all as this would notify all supervisors, including those that are not relevant for you.
+**If nobody responds**: If you want to contact a tutor or supervisor, **always use their Git handles in your issues description text**. Such that the respective person is notified about your inquiry by GitLab. To repeat: Do not assign a Git issue. We are only notified if you add the Git handle directly into the description text. **Do not use** @all as this would notify all supervisors, including those that are not relevant for you (your inquiry, resp.).
 
 As a last resort, you can contact the course [email](mailto:dse@swa.univie.ac.at) or tutor [email](mailto:dse.tutor@swa.univie.ac.at). 
 
@@ -60,8 +60,7 @@ As a last resort, you can contact the course [email](mailto:dse@swa.univie.ac.at
 
 We will support you by publishing feedback and grades/points (both on Moodle) on your programming task attempts during the semester. You can find both in your DSE Moodle course grade book. 
 
-In addition you can attend the programming task focussed lecture slots to present your attempts, receive feedback and discuss your ideas with your supervisor.
-
+In addition, you can attend the programming task focussed lecture slots to present your attempts, receive feedback and discuss your ideas with your supervisor.
 
 # Which functions should not be used?
 
