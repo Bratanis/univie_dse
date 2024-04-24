@@ -26,6 +26,8 @@ An alternative would be “Clone with SSH”. We typically only recommend it if 
 
 If you work concurrently on multiple programming tasks, using branches and branch-based **source code management strategies** is recommended. The assignment provides tips and recommendations on this area. If you want to learn about branches in a relaxed tutorial environment, we recommend: https://try.github.io/ Don't forget to merge, before the deadline, each relevant branch back into the master branch when a programming task implementation was completed.
 
+If you have little or no experience with Git, we recommend to check out: https://git-scm.com/book/en/v2
+
 # How do I use this repository?
 
 Clone this repository as indicated above. Then you can interact with it based on standard git commands, such as `git add`, `commit`, `push`, `checkout` etc. To do so, you must specify your name and email address after the initial clone. This information is subsequently automatically used during each commit. Use the following commands to do so:
