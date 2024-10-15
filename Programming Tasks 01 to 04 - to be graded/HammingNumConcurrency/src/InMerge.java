@@ -15,10 +15,10 @@ public class InMerge implements Runnable{
     }
 	
 	BlockingQueue<Integer> multBy2inputQueue;
-    BlockingQueue<Integer> multBy3inputQueue;
-    BlockingQueue<Integer> multBy5inputQueue;
+  BlockingQueue<Integer> multBy3inputQueue;
+  BlockingQueue<Integer> multBy5inputQueue;
     
-    BlockingQueue<Integer> sortedOutputQueue;
+  BlockingQueue<Integer> sortedOutputQueue;
     
 ////////////////////////////////////////////////////////////////////
 
