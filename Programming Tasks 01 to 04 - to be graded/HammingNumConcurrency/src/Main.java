@@ -14,13 +14,16 @@ public class Main {
 
 	public static void main(String[] args) {
 
+    //Instantiate an object that will count the number of printed numbers
+    PrintedNumbersCounter printedNumbersCounter = new PrintedNumbersCounter();
+
 		//Runnables instantiated:
 		MultBy2 multBy2 = new MultBy2();
 		MultBy3 multBy3 = new MultBy3();
 		MultBy5 multBy5 = new MultBy5();
 		InMerge inMerge = new InMerge(multBy2, multBy3, multBy5);
 		Copy copy = new Copy(inMerge, multBy2, multBy3, multBy5);
-		Print print = new Print(copy);
+		Print print = new Print(copy, printedNumbersCounter);
 		
 		//Instantiate threads
 		Thread multBy2Thread = new Thread(multBy2);
@@ -38,7 +41,7 @@ public class Main {
     System.out.println("Hamming numbers: ");
     
     //set the amount of numbers to be generated and initialize the copy queue:
-    Print.setMaxPrintCount(maxCount);
+    printedNumbersCounter.setMaxPrintCount(maxCount);
     copy.toggleGeneration();
     
     //Start threads

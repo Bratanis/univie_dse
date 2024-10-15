@@ -11,28 +11,16 @@ public class Print implements Runnable{
         Logger.getLogger("Print").setLevel(Level.OFF);
     }
 	
-	//keeps track of how many numbers are printed
-	private static int printNumberCount = 0;
-	private static int maxPrintNumberCount = 1; //Default value
-
-	BlockingQueue<Integer> inputQueue;
+	private BlockingQueue<Integer> inputQueue;
+  private PrintedNumbersCounter printedNumbersCounter;
 	
 ////////////////////////////////////////////////////////////////////	
 	
-	public Print(Copy copy){
+	public Print(Copy copy, PrintedNumbersCounter counter){
 		this.inputQueue = copy.getPrintOutputQueue();
+    this.printedNumbersCounter = counter;
 	}
 	
-	
-	//Used to detect when to stop the algorithm
-	public static void setMaxPrintCount(int maxCount) {
-		Print.maxPrintNumberCount = maxCount;
-	}
-	
-
-	public boolean requestedOutputReached() {
-		return (printNumberCount >= maxPrintNumberCount);
-	}
 	
 	@Override
 	public void run() {
@@ -40,25 +28,27 @@ public class Print implements Runnable{
 		//Debugging_____________________________________________________________
     	logger.info("Print thread has been started");
 		
-		while(!requestedOutputReached()) {
+		while(true) {
 			
 			if(!inputQueue.isEmpty()) {				
 				//Debugging_____________________________________________________________
 				logger.info("A number will be printed: ");
 				
 				System.out.println(inputQueue.poll());				
-				++printNumberCount;
+				printedNumbersCounter.incrementCounter();
 			}
+
+      //Terminate the threads whenever the requested output is reached
+      if (printedNumbersCounter.requestedOutputReached()){
+        System.exit(0);
+      }
+
 			try {
-				Thread.sleep(1000);
+				Thread.sleep(500);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 		}
-		if (requestedOutputReached()) {
-            System.exit(0);
-		}
-		
 	}
 
 }
