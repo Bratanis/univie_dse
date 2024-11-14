@@ -4,6 +4,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import copier.Copy;
+import customQueues.CustomPriorityBlockingQueue;
 import merger.InMerge;
 
 public class Print implements Runnable{
@@ -11,14 +12,15 @@ public class Print implements Runnable{
 	//Debugging_____________________________________________________________
 	private static final Logger logger = Logger.getLogger(Print.class.getName());
 
-	private BlockingQueue<Integer> inputQueue;
+	private CustomPriorityBlockingQueue inputQueue;
   private PrintedNumbersCounter printedNumbersCounter;
 	
 ////////////////////////////////////////////////////////////////////	
 	
 	public Print(Copy copy, PrintedNumbersCounter counter){
-		this.inputQueue = copy.getPrintOutputQueue();
-    this.printedNumbersCounter = counter;
+		this.inputQueue = (CustomPriorityBlockingQueue) copy.getPrintOutputQueue();
+		this.printedNumbersCounter = counter;
+		this.inputQueue.setMinCapacityBeforeRemoving(counter.getMaxPrintNumberCount()); 
 	}
 	
 	
@@ -34,19 +36,18 @@ public class Print implements Runnable{
 				//Debugging_____________________________________________________________
 				logger.info("A number will be printed: ");
 				
-				System.out.println(inputQueue.poll());				
+				try {
+					System.out.println(inputQueue.take());
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}				
 				printedNumbersCounter.incrementCounter();
 			}
 
       //Terminate the threads whenever the requested output is reached
-      if (printedNumbersCounter.requestedOutputReached()){
-        System.exit(0);
-      }
-
-			try {
-				Thread.sleep(500);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
+			if (printedNumbersCounter.requestedOutputReached()){
+				System.exit(0);
 			}
 		}
 	}

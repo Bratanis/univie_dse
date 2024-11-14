@@ -1,7 +1,7 @@
 package copier;
 import java.util.concurrent.BlockingQueue;
 //import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.PriorityBlockingQueue;
+import customQueues.NoDuplicateNumbersPriorityBlockingQueue;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -22,9 +22,9 @@ public class Copy implements Runnable{
 	BlockingQueue<Integer> inputQueue;
 	
 	BlockingQueue<Integer> multBy2outputQueue;
-  BlockingQueue<Integer> multBy3outputQueue;
-  BlockingQueue<Integer> multBy5outputQueue;
-  BlockingQueue<Integer> printOutputQueue;
+	BlockingQueue<Integer> multBy3outputQueue;
+	BlockingQueue<Integer> multBy5outputQueue;
+	BlockingQueue<Integer> printOutputQueue;
 
     
     
@@ -39,7 +39,8 @@ public class Copy implements Runnable{
 		this.multBy2outputQueue = multBy2.getInputQueue();
 		this.multBy3outputQueue = multBy3.getInputQueue();
 		this.multBy5outputQueue = multBy5.getInputQueue();
-		this.printOutputQueue = new PriorityBlockingQueue<>();
+		// We want to proceed only with unique values
+		this.printOutputQueue = new NoDuplicateNumbersPriorityBlockingQueue(); 
 	}
 	
 	//for forwarding the queue to the Print class
@@ -53,13 +54,6 @@ public class Copy implements Runnable{
 		}
 	}
 	
-  //______________________________________________________________________-> probably should be implemented in the InMerge so that duplicates are removed on time
-	// Check if the inMerge queue has duplicate elements and skip them
-	private void skipDuplicatesOf (Integer el) {
-		if (inputQueue.peek() != null && el == inputQueue.peek()) {
-			inputQueue.poll();
-		}
-	}
 
 	@Override
 	public void run() {
@@ -76,41 +70,37 @@ public class Copy implements Runnable{
 			
 				Integer el = inputQueue.poll();
 				
-				// Check if the inMerge queue has duplicate elements and skip them
-				skipDuplicatesOf(el);
-				
-				if(multBy2outputQueue.offer(el)) {
-					//Debugging_____________________________________________________________
-			    	logger.info(el +" has been copied to multBy2outputQueue");
-				} else {
-		        	logger.severe("Element NOT copied to multBy2outputQueue !!!");
-		        }
-				if(multBy3outputQueue.offer(el)) {
-					//Debugging_____________________________________________________________
-			    	logger.info(el +" has been copied to multBy3outputQueue");
-				} else {
-		        	logger.severe("Element NOT copied to multBy3outputQueue !!!");
-		        }
-				if(multBy5outputQueue.offer(el)) {
-					//Debugging_____________________________________________________________
-			    	logger.info(el +" has been copied to multBy5outputQueue");
-				} else {
-		        	logger.severe("Element NOT copied to multBy5outputQueue !!!");
-		        }
-				if(printOutputQueue.offer(el)) {
-					//Debugging_____________________________________________________________
-			    	logger.info(el +" has been copied to printOutputQueue");
-				} else {
-		        	logger.severe("Element NOT copied to printOutputQueue !!!");
-		        }
-			    	//Debugging_____________________________________________________________
+				try {
+					multBy2outputQueue.put(el);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				try {
+					multBy3outputQueue.put(el);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				try {
+					multBy5outputQueue.put(el);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+					
+				try {
+					printOutputQueue.put(el);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}			    	//Debugging_____________________________________________________________
 			    	logger.info("a copy cycle has been completed!");
 			}
 			
 			
 	    	
 			try {
-				Thread.sleep(1000);
+				Thread.sleep(000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

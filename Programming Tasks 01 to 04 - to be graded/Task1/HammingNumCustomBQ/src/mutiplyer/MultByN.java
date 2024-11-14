@@ -1,6 +1,6 @@
 package mutiplyer;
 import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.LinkedBlockingQueue;
+import customQueues.CustomPriorityBlockingQueue;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -14,14 +14,14 @@ public abstract class MultByN implements Runnable{
     }
 	
 	BlockingQueue<Integer> inputQueue;
-  BlockingQueue<Integer> outputQueue;
+    BlockingQueue<Integer> outputQueue;
 	protected int N; // the integer the numbers will be multiplied by
 	
 ////////////////////////////////////////////////////////////////////
 	//The input and output queue get filled by other methods
 	public MultByN() {
-        this.inputQueue = new LinkedBlockingQueue<Integer>();
-        this.outputQueue = new LinkedBlockingQueue<Integer>();
+        this.inputQueue = new CustomPriorityBlockingQueue();
+        this.outputQueue = new CustomPriorityBlockingQueue();
     }
 
 
@@ -61,7 +61,7 @@ public abstract class MultByN implements Runnable{
             	generateNumber();
             	
                 try {
-					Thread.sleep(500);
+					Thread.sleep(000);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}

@@ -16,6 +16,10 @@ public class PrintedNumbersCounter{
 		return (printNumberCount >= maxPrintNumberCount);
 	}
 	
+	public int getMaxPrintNumberCount() {
+		return this.maxPrintNumberCount;
+	}
+	
 
   public void incrementCounter() {
     printNumberCount++;

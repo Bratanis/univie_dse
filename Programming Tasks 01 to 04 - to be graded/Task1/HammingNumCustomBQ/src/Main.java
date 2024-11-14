@@ -15,8 +15,10 @@ import printer.PrintedNumbersCounter;
 //
 //
 // Important: 
-// This code was written in SS24 by Ivan Bratanov (12228892) 
+// Most of this code was written in SS24 by (me) Ivan Bratanov (12228892) 
 // and is being reused with slight modifications in WS24
+//
+// Analysis on the task can be found in the README file.
 //
 //
 
@@ -38,11 +40,11 @@ public class Main {
 		
 		//Instantiate threads
 		Thread multBy2Thread = new Thread(multBy2);
-    Thread multBy3Thread  = new Thread(multBy3);
-    Thread multBy5Thread  = new Thread(multBy5);
-    Thread copyThread = new Thread(copy);
-    Thread inMergeThread = new Thread(inMerge);
-    Thread printThread = new Thread(print);
+		Thread multBy3Thread  = new Thread(multBy3);
+		Thread multBy5Thread  = new Thread(multBy5);
+		Thread copyThread = new Thread(copy);
+		Thread inMergeThread = new Thread(inMerge);
+		Thread printThread = new Thread(print);
 
     //Ask user how many numbers they want
     System.out.print("Please enter how many numbers you want: ");
