@@ -1,4 +1,3 @@
-package v2;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -7,14 +6,13 @@ import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import v1.TCPServer_v1;
 
 
 //Task 2.2______________________________________________________________________________________
 public class TCPServer_v2 {
 
 		//For Debugging_________________________________
-		private static final Logger logger = Logger.getLogger(TCPServer_v1.class.getName());
+		private static final Logger logger = Logger.getLogger(TCPServer_v2.class.getName());
 		static {
 			Logger.getLogger("TCPServer").setLevel(Level.OFF);
 		}

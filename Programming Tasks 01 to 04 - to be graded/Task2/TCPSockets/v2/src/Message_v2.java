@@ -1,4 +1,3 @@
-package v2;
 import java.io.Serializable;
 import java.sql.Timestamp;
 

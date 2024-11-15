@@ -1,4 +1,3 @@
-package v3;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -36,7 +35,7 @@ public class TCPClient_v3 {
 public static void main(String[] args) throws IOException, ClassNotFoundException {
 	
 	//Open connection to a server, at port 1254
-	Socket s1 = new Socket("localhost", 1254);
+	Socket s1 = new Socket("localhost", 1234);
 	
 	//Create input and output communication streams
 	ObjectOutputStream oos = new ObjectOutputStream(s1.getOutputStream());
@@ -49,7 +48,7 @@ public static void main(String[] args) throws IOException, ClassNotFoundExceptio
 	long[] avgTransmissionTimes = new long[blobSizes.length];
 	
 	//Number of times the message will be "ping-ponged" between client and server for each blob size
-	int iterations = 1000;
+	int iterations = 100;
 	
 	//Iterate through the blobSize array, sending 1000 messages for each blob size
 	for(int i = 0; i < blobSizes.length; ++i) {
