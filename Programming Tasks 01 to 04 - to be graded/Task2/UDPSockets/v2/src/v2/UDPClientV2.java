@@ -18,7 +18,7 @@ public class UDPClientV2 {
 	public static void main(String[] args) throws IOException {
 		
 		int clientInt = 2;	
-		MessageV2 clientMessage = new MessageV2(clientInt, "client1");
+		MessageV3 clientMessage = new MessageV3(clientInt, "client1");
 		
 		//Register service
 		DatagramSocket s = null; 
@@ -43,7 +43,7 @@ public class UDPClientV2 {
 				DatagramPacket reply = new DatagramPacket (serializedMessage.array(),
 														   serializedMessage.capacity());
 				s.receive(reply);
-				clientMessage = MessageV2.deserialize(serializedMessage);
+				clientMessage = MessageV3.deserialize(serializedMessage);
 				logger.info("Received from server: " + clientMessage);
 			//}
 		} catch (SocketException e) {

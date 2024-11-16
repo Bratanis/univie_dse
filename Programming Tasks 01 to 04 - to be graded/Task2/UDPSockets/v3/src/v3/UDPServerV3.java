@@ -1,4 +1,4 @@
-package v2;
+package v3;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
@@ -12,12 +12,12 @@ import java.util.logging.Logger;
 // https://stackoverflow.com/questions/26226688/converting-from-datagrampacket-to-int
 // https://www.geeksforgeeks.org/java-nio-bytebuffer-class-in-java/
 
-public class UDPServerV2 {
+public class UDPServerV3 {
 
 	//For Debugging_________________________________
-	private static final Logger logger = Logger.getLogger(UDPServerV2.class.getName());
+	private static final Logger logger = Logger.getLogger(UDPServerV3.class.getName());
 	static {
-		Logger.getLogger("UDPServerV2").setLevel(Level.ALL);
+		Logger.getLogger("UDPServerV3").setLevel(Level.ALL);
 	}
 	
 	public static void main(String[] args) throws IOException{
@@ -27,11 +27,17 @@ public class UDPServerV2 {
 		int serverPort = 2345;
 		try {
 			s = new DatagramSocket(serverPort);
-            ByteBuffer clientMessageBuffer = ByteBuffer.allocate(100); // 100 Bytes should be more than enough 
-            												  // for the message (for now)		
 
-			//while (true) {
-				
+            int numOfBlobSizes = 6;
+            int iterationsPerBlobSize = 10;
+
+            int totalIterations = iterationsPerBlobSize*numOfBlobSizes;
+            logger.info("The server will run for " + totalIterations + " iterations!");
+            
+			for (int iteration = 0; iteration < totalIterations; ++iteration) {
+
+				 // 150000 Bytes should be more than enough for the message (for now)
+				ByteBuffer clientMessageBuffer = ByteBuffer.allocate(150000);		
 				DatagramPacket request = new DatagramPacket(clientMessageBuffer.array(), 
 															clientMessageBuffer.capacity());
 				s.receive(request);
@@ -42,15 +48,15 @@ public class UDPServerV2 {
 			    requestMessage.incrementNum();
 				logger.info("Sending back: " + requestMessage);
 
-				clientMessageBuffer.clear(); // Clear the buffer, just in case 
 				clientMessageBuffer = requestMessage.serialize(); // Prepare the message for sending
-				
-				DatagramPacket reply = new DatagramPacket(  clientMessageBuffer.array(),
-															clientMessageBuffer.capacity(),
+		        ByteBuffer responseBuffer = requestMessage.serialize();	
+		        
+				DatagramPacket reply = new DatagramPacket(  responseBuffer.array(),
+															responseBuffer.capacity(),
 															request.getAddress(),
 															request.getPort());
 				s.send(reply);
-			//}
+			}
 		} catch (SocketException e) {
 			logger.warning("Socket: " + e.getMessage());
 		} catch (IOException e) {

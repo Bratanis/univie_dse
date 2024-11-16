@@ -33,7 +33,7 @@ public static void main(String[] args) throws IOException, ClassNotFoundExceptio
 	    
 	    //loop that will accept, increment and return 6000 messages 
 	    //(1000 for each the 6 different dataBlob sizes )
-	    for (int i = 0; i < 600; ++i) {
+	    for (int i = 0; i < 6000; ++i) {
 		    //Read integer from client
 		    Message_v3 receivedMsg = (Message_v3) ois.readObject();
 		    logger.info("Received from client: " + receivedMsg);

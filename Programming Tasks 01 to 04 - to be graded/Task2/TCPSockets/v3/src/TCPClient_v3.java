@@ -48,7 +48,7 @@ public static void main(String[] args) throws IOException, ClassNotFoundExceptio
 	long[] avgTransmissionTimes = new long[blobSizes.length];
 	
 	//Number of times the message will be "ping-ponged" between client and server for each blob size
-	int iterations = 100;
+	int iterations = 1000;
 	
 	//Iterate through the blobSize array, sending 1000 messages for each blob size
 	for(int i = 0; i < blobSizes.length; ++i) {
