@@ -12,10 +12,10 @@ import java.util.logging.Logger;
 
 import messageV3.Message;
 
-public class BACKUP_UDP_Server {
+public class AnotherUDPServer {
 
     //For Debugging_________________________________
-    private static final Logger logger = Logger.getLogger(BACKUP_UDP_Server .class.getName());
+    private static final Logger logger = Logger.getLogger(AnotherUDPServer .class.getName());
     static {
         Logger.getLogger("BACKUP_UDP_Server ").setLevel(Level.ALL);
     }
