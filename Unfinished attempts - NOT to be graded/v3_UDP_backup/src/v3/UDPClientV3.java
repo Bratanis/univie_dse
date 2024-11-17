@@ -3,8 +3,6 @@ package v3;
 import java.net.*;
 import java.nio.ByteBuffer;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -48,24 +46,6 @@ public class UDPClientV3 {
 							   + avgTransmissionTimes[i] + "ms.");
 		}
 	}
-
-	
-	public static ByteBuffer sendToServer(ByteBuffer requestBuffer, DatagramSocket s, InetAddress host, int serverPort) throws IOException {
-		DatagramPacket request = new DatagramPacket(requestBuffer.array(), 
-				requestBuffer.capacity(),
-				host, serverPort);
-				
-			s.send(request);
-
-		// Receive the reply
-			byte[] responseBuffer = new byte[requestBuffer.capacity()];
-			DatagramPacket reply = new DatagramPacket(responseBuffer, responseBuffer.length);
-			s.receive(reply);
-
-			// Get the message from the server reply
-			ByteBuffer responseByteBuffer = ByteBuffer.wrap(reply.getData(), 0, reply.getLength());
-			return responseByteBuffer;
-	}
 	
 	
 	public static void main(String[] args) throws IOException {
@@ -96,28 +76,25 @@ public class UDPClientV3 {
         		for (int iterationForABlobSize = 0; iterationForABlobSize < iterationsPerBlobSize; ++iterationForABlobSize) {
         			//Save timestamp:
         			receivedMsgTimestamps[iterationForABlobSize] = clientMessage.getTimestampInMillis(); 
-        	
-        			// with small blobs, just send the message
-        			if (!clientMessage.shouldBeFragmented()) {
         			
-	        			// Send the message
-		        		ByteBuffer requestBuffer = clientMessage.serialize();
-					    
-		                // Get the message from the server reply
-		                ByteBuffer responseByteBuffer = sendToServer(requestBuffer, s, host, serverPort); 
-		                clientMessage = Message.deserialize(responseByteBuffer);
-	
-        			} else { // If the blob is too big, fragment it and send the fragments one by one!
-        				List<ByteBuffer> fragmentRequestBuffers = clientMessage.serializeLargeMessage();
-        				List<ByteBuffer> fragmentResponseBuffers = new ArrayList();
-        				for (ByteBuffer requestBuffer : fragmentRequestBuffers) {
-        					ByteBuffer responseBuffer = sendToServer(requestBuffer, s, host, serverPort);
-        					fragmentResponseBuffers.add(responseBuffer);
-        				}
-        				clientMessage = Message.deserializeLargeMessage(fragmentResponseBuffers);
-        			}
-        			
-        			// Update the timestamp after roundtrip:
+        			// Send the message
+	        		ByteBuffer requestBuffer = clientMessage.serialize();
+				    logger.info("Sending to server: " + clientMessage);
+					DatagramPacket request = new DatagramPacket(requestBuffer.array(), 
+																requestBuffer.capacity(),
+																host, serverPort);
+					s.send(request);
+					
+	                // Receive the reply
+	                byte[] responseBuffer = new byte[requestBuffer.capacity()];
+	                DatagramPacket reply = new DatagramPacket(responseBuffer, responseBuffer.length);
+	                s.receive(reply);
+
+	                // Get the message from the server reply
+	                ByteBuffer responseByteBuffer = ByteBuffer.wrap(reply.getData(), 0, reply.getLength());
+	                clientMessage = Message.deserialize(responseByteBuffer);
+
+					// Update the timestamp after roundtrip:
 					clientMessage.updateTimestamp();
 					logger.info("Received from server: " + clientMessage);
         		}

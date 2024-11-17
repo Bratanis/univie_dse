@@ -1,4 +1,4 @@
-package v3;
+package messageV3;
 
 import java.io.Serializable;
 import java.nio.ByteBuffer;
@@ -6,9 +6,11 @@ import java.nio.charset.StandardCharsets;
 import java.sql.Timestamp;
 import java.util.Arrays;
 
-// Largely reused TCP implementation code (my own)
-public class MessageV3 implements Serializable{
-	private static final long serialVersionUID = -1882656973952573394L;
+public class Message implements UDPMessage{
+	// private static final long serialVersionUID = -1882656973952573394L;
+	public static final int MAX_PACKAGE_SIZE = 65487; // Since the packages will not be sent over the internet,
+													   // we can set a realtively high payload size. Otherwise it 
+													   // might make sense to keep the payload below 1,472 B!
     private byte[] dataBlob;
 	private Integer num;
     private String senderName;
@@ -18,12 +20,12 @@ public class MessageV3 implements Serializable{
     * @param clientInt
     * @param senderName
     */
-    public MessageV3(int blobSize, Integer clientInt, String senderName) {
+    public Message(int blobSize, Integer clientInt, String senderName) {
     	// Will create a Message with an empty blob (will get filled by the other ctor!)
         this(new byte[blobSize], clientInt, senderName, System.currentTimeMillis());
     }
     
-    public MessageV3(byte[] dataBlob, Integer clientInt, String senderName, long timestampInMillis) {
+    public Message(byte[] dataBlob, Integer clientInt, String senderName, long timestampInMillis) {
     	if (dataBlob.length == 0) {
     		Arrays.fill(dataBlob, (byte) 0x98);	//Fills blob with an arbitrary hexadecimal number
     	} else {
@@ -42,12 +44,20 @@ public class MessageV3 implements Serializable{
     public void updateTimestamp() {
     	this.timestampInMillis = System.currentTimeMillis();
     }
-
+ 
+    public int getMessageSize() {
+        byte[] senderNameBytes = getSenderNameBytes(); 
+    	return (Integer.BYTES + Long.BYTES + Integer.BYTES + senderNameBytes.length
+        				+ Integer.BYTES + dataBlob.length);
+    }
+    
+    private byte[] getSenderNameBytes () {
+    	return senderName.getBytes(StandardCharsets.UTF_8);
+    }
   
-    public ByteBuffer serialize() {
-        byte[] senderNameBytes = senderName.getBytes(StandardCharsets.UTF_8);
-        int totalSize = Integer.BYTES + Long.BYTES + Integer.BYTES + senderNameBytes.length
-        				+ Integer.BYTES + dataBlob.length;
+    public ByteBuffer[] serialize() {
+    	byte[] senderNameBytes = getSenderNameBytes();
+        int totalSize = getMessageSize();
         
         ByteBuffer buffer = ByteBuffer.allocate(totalSize);
         buffer.putInt(num);
@@ -59,10 +69,11 @@ public class MessageV3 implements Serializable{
         buffer.put(dataBlob);
         
         buffer.flip(); // Prepare the buffer for reading 
-        return buffer;
+        return new ByteBuffer[] {buffer};
     }
     
-    public static MessageV3 deserialize(ByteBuffer buffer) {
+    public static Message deserialize(ByteBuffer[] buffers) {
+    	ByteBuffer buffer = buffers[0];
     	Integer num = buffer.getInt();
     	long timestampInMillis = buffer.getLong();
     	
@@ -75,7 +86,7 @@ public class MessageV3 implements Serializable{
         byte[] dataBlob = new byte[dataBlobLength];
         buffer.get(dataBlob);
         
-        return new MessageV3(dataBlob, num, senderName, timestampInMillis);
+        return new Message(dataBlob, num, senderName, timestampInMillis);
     }
     
     
