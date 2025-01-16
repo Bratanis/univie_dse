@@ -1,0 +1,659 @@
+openapi: "3.0.0"
+info:
+  version: "1.0.0"
+  title: Scheduler App Api
+  description: The api for task6 of the course DSE of the university of Vienna (WS24)
+  contact:
+    name: Bratanov Ivan
+    email: 12228892@unet.univie.ac.at
+
+    
+
+    
+paths:
+
+
+  /dashboard:
+      
+    get:
+      description: > 
+                   Get the whole dashboard, containing all of the scheduled meetings
+                   and all of the polls that are ongoing
+      responses:
+        200:
+          description: Successful pull of dashboard object
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MeetingsDashboard"
+              examples:
+                sampleDashboard:
+                  value:
+                    meetings:
+                      - meetingId: 1
+                        subject: "Team Sync"
+                        date: "2025-01-20"
+                      - meetingId: 2
+                        subject: "Project Kickoff"
+                        date: "2025-01-22"
+                    polls:
+                      - pollId: 101
+                        proposals:
+                          - meetingId: 11
+                            subject: "Design Review"
+                            date: "2025-01-25"
+                            participants:
+                              Alice: "yes"
+                              Bob: "maybe"
+                        isPublished: false
+        400:
+          $ref: "#/components/responses/BadRequest"
+        401:
+          $ref: "#/components/responses/Unauthorized"
+        403:
+          $ref: "#/components/responses/Forbidden"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/InternalServerError"
+                  
+
+  /meeting:
+
+    get:
+      description: > 
+                   Get all of the scheduled meetings
+      responses:
+        200:
+          description: Successful pull of meetings
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Meeting"
+              examples:
+                  sampleMeetings:
+                    value:
+                      - meetingId: 1
+                        subject: "Team Sync"
+                        date: "2025-01-20"
+                      - meetingId: 2
+                        subject: "Project Kickoff"
+                        date: "2025-01-22"
+        400:
+          $ref: "#/components/responses/BadRequest"
+        401:
+          $ref: "#/components/responses/Unauthorized"
+        403:
+          $ref: "#/components/responses/Forbidden"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/InternalServerError"
+
+    post:
+      description: >
+                   Add a new meeting to the dashboard
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Meeting"
+            examples:
+              newMeeting:
+                value:
+                  meetingId: 3
+                  subject: "Quarterly Review"
+                  date: "2025-01-28"
+      responses:
+        200:
+          description: Successfully created a new meeting and added it to the dashboard
+        400:
+          $ref: "#/components/responses/BadRequest"
+        401:
+          $ref: "#/components/responses/Unauthorized"
+        403:
+          $ref: "#/components/responses/Forbidden"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/InternalServerError"
+    
+          
+  /meeting/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          $ref: "#/components/schemas/meetingId"
+        description: The unique identifier of the meeting
+    get:
+      description: Retrieve details of a specific meeting
+      responses:
+        200:
+          description: Successfully retrieved the meeting details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Meeting"
+              examples:
+                specificMeeting:
+                  value:
+                    meetingId: 2
+                    subject: "Project Kickoff"
+                    date: "2025-01-22"
+        400:
+          $ref: "#/components/responses/BadRequest"
+        401:
+          $ref: "#/components/responses/Unauthorized"
+        403:
+          $ref: "#/components/responses/Forbidden"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/InternalServerError"
+    delete:
+      description: Delete a specific meeting
+      responses:
+        200:
+          description: Successfully deleted a meeting
+        400:
+          $ref: "#/components/responses/BadRequest"
+        401:
+          $ref: "#/components/responses/Unauthorized"
+        403:
+          $ref: "#/components/responses/Forbidden"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/InternalServerError"
+      
+  /poll:
+    get:
+      description: > 
+                   Get all of the polls
+      responses:
+        200:
+          description: Successful pull of polls
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Poll"
+              examples:
+                samplePolls:
+                  value:
+                    - pollId: 101
+                      proposals:
+                        - meetingId: 11
+                          subject: "Design Review"
+                          date: "2025-01-25"
+                          participants:
+                            Alice: "yes"
+                            Bob: "maybe"
+                      isPublished: true
+                    - pollId: 102
+                      proposals: []
+                      isPublished: false
+        400:
+          $ref: "#/components/responses/BadRequest"
+        401:
+          $ref: "#/components/responses/Unauthorized"
+        403:
+          $ref: "#/components/responses/Forbidden"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/InternalServerError"
+    post:
+      description: >
+                   Add a new poll to the dashboard
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Poll"
+            examples:
+              newPoll:
+                value:
+                  - pollId: 109
+                    proposals:
+                      - meetingId: 21
+                        subject: "Scrum"
+                        date: "2025-01-25"
+                    isPublished: false
+      responses:
+        200:
+          description: Successfully created a new poll and added it to the dashboard
+        400:
+          $ref: "#/components/responses/BadRequest"
+        401:
+          $ref: "#/components/responses/Unauthorized"
+        403:
+          $ref: "#/components/responses/Forbidden"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/InternalServerError"
+
+  /poll/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          $ref: "#/components/schemas/pollId"
+        description: The unique identifier of the poll
+    get:
+      description: Retrieve details of a specific poll
+      responses:
+        200:
+          description: Successfully retrieved the poll details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Poll"
+        400:
+          $ref: "#/components/responses/BadRequest"
+        401:
+          $ref: "#/components/responses/Unauthorized"
+        403:
+          $ref: "#/components/responses/Forbidden"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/InternalServerError"
+    delete:
+      description: Delete a specific poll
+      responses:
+        200:
+          description: Successfully deleted a poll
+        400:
+          $ref: "#/components/responses/BadRequest"
+        401:
+          $ref: "#/components/responses/Unauthorized"
+        403:
+          $ref: "#/components/responses/Forbidden"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/InternalServerError"
+    patch:
+      description: Publish a poll by setting its isPublished field to true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                isPublished:
+                  type: boolean
+                  description: Indicates whether the poll is published
+              required:
+                - isPublished
+            examples:
+              publishPoll:
+                value:
+                  isPublished: true
+      responses:
+        200:
+          description: Poll successfully updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Poll"
+        400:
+          $ref: "#/components/responses/BadRequest"
+        401:
+          $ref: "#/components/responses/Unauthorized"
+        403:
+          $ref: "#/components/responses/Forbidden"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/InternalServerError"
+      
+ # /poll/{id}/export:
+ #   get:
+ #     description: Retrieve all data related to the poll in a downloadable format
+ #       (e.g., JSON or CSV).
+ #     operationId: exportPoll
+ #     parameters:
+ #     - description: The unique identifier of the poll to export.
+ #       in: path
+ #       name: id
+ #       required: true
+ #       schema:
+ #         type: string
+ #     - description: The format to export the data (e.g., json, csv).
+ #       in: query
+ #       name: format
+ #       required: false
+ #       schema:
+ #         default: json
+ #         enum:
+ #         - json
+ #         - csv
+ #         type: string
+ #     responses:
+ #       '200':
+ #         content:
+ #           application/json:
+ #             schema:
+ #               type: object
+ #           text/csv:
+ #             schema:
+ #               format: binary
+ #               type: string
+ #         description: Exported data in the requested format.
+
+  /poll/{pollId}/ProposedMeeting:
+    parameters:
+      - name: pollId
+        in: path
+        required: true
+        schema:
+          $ref: "#/components/schemas/pollId"
+        description: The unique identifier of the poll
+    get:
+      description: Retrieve all proposed meetings of a specific poll
+      responses:
+        200:
+          description: Successfully retrieved proposed meetings of the poll
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ProposedMeeting"
+              examples:
+                sampleProposedMeetings:
+                  value:
+                    - meetingId: 11
+                      subject: "Design Review"
+                      date: "2025-01-25"
+                      participants:
+                        Alice: "yes"
+                        Bob: "maybe"
+                    - meetingId: 12
+                      subject: "Sprint Planning"
+                      date: "2025-01-26"
+                      participants:
+                        Alice: "no"
+                        Bob: "yes"
+        400:
+          $ref: "#/components/responses/BadRequest"
+        401:
+          $ref: "#/components/responses/Unauthorized"
+        403:
+          $ref: "#/components/responses/Forbidden"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/InternalServerError"
+    post:
+      description: add a new proposed meeting to the poll
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProposedMeeting"
+      responses:
+        200:
+          description: Successfully proposed a meeting to the poll
+        400:
+          $ref: "#/components/responses/BadRequest"
+        401:
+          $ref: "#/components/responses/Unauthorized"
+        403:
+          $ref: "#/components/responses/Forbidden"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/InternalServerError"
+
+  /poll/{pollId}/ProposedMeeting/{meetingId}:
+    parameters:
+          - name: pollId
+            in: path
+            required: true
+            schema:
+              $ref: "#/components/schemas/pollId"
+            description: The unique identifier of the poll
+          - name: meetingId
+            in: path
+            required: true
+            schema:
+              $ref: "#/components/schemas/meetingId"
+            description: The unique identifier of the meeting
+    get:
+      description: Retrieve a specific proposed meeting from a specific poll
+      responses:
+        200:
+          description: Successfully retrieved a proposed meeting from the poll
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProposedMeeting"
+        400:
+          $ref: "#/components/responses/BadRequest"
+        401:
+          $ref: "#/components/responses/Unauthorized"
+        403:
+          $ref: "#/components/responses/Forbidden"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/InternalServerError"
+
+    delete:
+      description: Delete a specific proposed meeting from a specific poll
+      responses:
+        200:
+          description: Successfully deleted a meeting proposal from the poll
+        400:
+          $ref: "#/components/responses/BadRequest"
+        401:
+          $ref: "#/components/responses/Unauthorized"
+        403:
+          $ref: "#/components/responses/Forbidden"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/InternalServerError"
+    patch:
+      description: >
+                    Vote for a meeting in a poll by creating a "user" object
+                    (name, availability) and adding it to the selected
+                    proposed meeting in the selected poll
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object 
+              properties:
+                User:
+                  $ref: "#/components/schemas/User"
+              required:
+                - User
+            examples:
+              voteForMeeting:
+                value:
+                  User:
+                    name: "Ivan Bratan"
+                    availability: "yes"
+      responses:
+        200:
+          description: Poll successfully updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Poll"  
+        400:
+          $ref: "#/components/responses/BadRequest"
+        401:
+          $ref: "#/components/responses/Unauthorized"
+        403:
+          $ref: "#/components/responses/Forbidden"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/InternalServerError"
+
+components:
+  
+
+  responses:
+    BadRequest:
+      description: Bad request - invalid or missing input data
+    Unauthorized:
+      description: Unauthorized - authentication required
+    Forbidden:
+      description: Forbidden - insufficient permissions
+    NotFound:
+      description: Not found - resource does not exist
+    InternalServerError:
+      description: Internal server error - unexpected issue on the server
+
+
+  securitySchemes: {}
+
+
+  schemas:
+    
+    meetingId:
+        nullable: false
+        type: integer
+        minimum: 0
+        maximum: 999
+
+    pollId:
+        nullable: false
+        type: integer
+        minimum: 0
+        maximum: 999
+
+    EAvailability:
+      type: string
+      description: The availability status of a participant.
+      enum:
+        - yes
+        - no
+        - maybe
+
+    Meeting:
+      type: object
+      properties:
+        meetingId: 
+          $ref: "#/components/schemas/meetingId"
+        subject:
+          nullable: false
+          type: string
+          description: The subject of the meeting
+        date:
+          nullable: false
+          type: string
+          format: date
+          description: The date of the meeting
+      example:
+        meetingId: 1
+        subject: "Team Sync"
+        date: "2025-01-20"
+
+    ProposedMeeting:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/Meeting'
+        - type: object
+          properties:
+            participants:
+              type: object
+              description: A map of participant names to their availability.
+              additionalProperties:
+                $ref: '#/components/schemas/EAvailability'
+      example:
+        meetingId: 11
+        subject: "Design Review"
+        date: "2025-01-25"
+        participants:
+          Alice: "yes"
+          Bob: "maybe"
+
+    Poll:
+      type: object
+      properties:
+        pollId: 
+          $ref: "#/components/schemas/pollId"
+        proposals:
+          nullable: false
+          type: array
+          items:
+            $ref: "#/components/schemas/ProposedMeeting"
+        isPublished:
+          nullable: false
+          type: boolean
+      example:
+        pollId: 101
+        proposals:
+          - meetingId: 11
+            subject: "Design Review"
+            date: "2025-01-25"
+            participants:
+              Alice: "yes"
+              Bob: "maybe"
+          - meetingId: 12
+            subject: "Design Review"
+            date: "2025-02-25"
+            participants:
+              Alice: "yes"
+              Bob: "no"
+        isPublished: false
+
+    User:
+      type: object
+      properties:
+        name:
+          nullable: false
+          type: string
+        availability:
+            $ref: '#/components/schemas/EAvailability'
+
+    MeetingsDashboard:
+      type: object
+      properties:
+        meetings:
+          nullable: false
+          type: array
+          items: 
+            $ref: "#/components/schemas/Meeting"
+        polls:
+          nullable: false
+          type: array
+          items:
+            $ref: "#/components/schemas/Poll"
+      example:
+        meetings:
+          - meetingId: 1
+            subject: "Team Sync"
+            date: "2025-01-20"
+          - meetingId: 2
+            subject: "Project Kickoff"
+            date: "2025-01-22"
+        polls:
+          - pollId: 101
+            proposals:
+              - meetingId: 11
+                subject: "Design Review"
+                date: "2025-01-25"
+                participants:
+                  Alice: "yes"
+                  Bob: "maybe"
+            isPublished: false

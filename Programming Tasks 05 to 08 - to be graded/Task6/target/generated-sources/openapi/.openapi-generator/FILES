@@ -1,0 +1,15 @@
+src/main/java/com/example/Task6/api/ApiUtil.java
+src/main/java/com/example/Task6/api/DashboardApi.java
+src/main/java/com/example/Task6/api/DashboardApiDelegate.java
+src/main/java/com/example/Task6/api/MeetingApi.java
+src/main/java/com/example/Task6/api/MeetingApiDelegate.java
+src/main/java/com/example/Task6/api/PollApi.java
+src/main/java/com/example/Task6/api/PollApiDelegate.java
+src/main/java/com/example/Task6/model/EAvailability.java
+src/main/java/com/example/Task6/model/Meeting.java
+src/main/java/com/example/Task6/model/MeetingsDashboard.java
+src/main/java/com/example/Task6/model/Poll.java
+src/main/java/com/example/Task6/model/PollIdPatchRequest.java
+src/main/java/com/example/Task6/model/PollPollIdProposedMeetingMeetingIdPatchRequest.java
+src/main/java/com/example/Task6/model/ProposedMeeting.java
+src/main/java/com/example/Task6/model/User.java

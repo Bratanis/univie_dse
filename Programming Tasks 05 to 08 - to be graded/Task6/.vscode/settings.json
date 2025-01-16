@@ -1,0 +1,6 @@
+{
+    "yaml.schemas": {
+        "openapi:v3": "file:///home/bratan/Desktop/DSE/DSE_12228892/Programming%20Tasks%2005%20to%2008%20-%20to%20be%20graded/Tas6/main_config.yml"
+    },
+    "java.compile.nullAnalysis.mode": "automatic"
+}
