@@ -6,7 +6,7 @@
   (in the same directory as this document) and go to 
   http://localhost:8080/ to see the swagger-ui render
 
-## changes made to the openapi-generated code
+## Design choices and assumptions 
 - I have used newer versions of the dependencies listed
   in the turoial, because I assume they are better 
   (and offer more support).
@@ -24,8 +24,22 @@
 - The generator seems to not support inheritance. I have
   changed the ProposedMeeting in the model package to 
   extend Meeting, since that was my intention.
+- The tutorial recommended by the task 
+  (https://www.baeldung.com/spring-boot-testing#integration-testing-with-springboottest)
+  seems to demonstrate integration testing of a complete or at 
+  least semi-complete server. We are asked to write integration
+  tests for the openapi-generated server stub. Furthermore the 
+  example of an integration test given in the java-openapi-
+  generator is very different from the ITs in the other tutorial.
+  An integration test that checks if the endpoint is not 
+  implemented isn't very interesting. From my understanding 
+  a proper integration test requires more than a server stub.
+  I believe that a more detailed explanation of what is expected
+  for the task would be helpful.
 
 
 ## Tools and Sources 
 - All ressources listed in the task description
 - Swagger
+- How to build integration tests:
+  https://www.youtube.com/watch?v=7QCzBwplNIk
