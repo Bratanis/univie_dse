@@ -7,7 +7,7 @@ cd ./src/main/resources/static/swagger-ui || {
 }
 
 # Start the Python HTTP server
-echo "Starting Python server at port 8080..."
-python3 -m http.server 8080
+echo "Starting Python server at port 8081..."
+python3 -m http.server 8081
 
 

@@ -17,8 +17,10 @@
   This happens even when I use the example project .yml
   (The one in the github repo for the tutorial).
   Since javax is deprecated and replaced by jakarta 
-  (per mvnrepository.com), I manually updated all imports
-  to use jakarta.
+  (per mvnrepository.com), I tried to update all imports
+  to use jakarta. That conflicted with the mvn build so I 
+  settled to manually add javax to the dependencies, even
+  though they are from around 2017
 - The generator seems to not support inheritance. I have
   changed the ProposedMeeting in the model package to 
   extend Meeting, since that was my intention.

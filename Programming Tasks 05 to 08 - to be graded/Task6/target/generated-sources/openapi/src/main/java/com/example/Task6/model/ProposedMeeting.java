@@ -1,25 +1,29 @@
 package com.example.Task6.model;
 
+import java.net.URI;
+import java.util.Objects;
+import com.example.Task6.model.EAvailability;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
-
 import org.springframework.format.annotation.DateTimeFormat;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.time.OffsetDateTime;
+import javax.validation.Valid;
+import javax.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.annotation.Generated;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
+
+
+import java.util.*;
+import javax.annotation.Generated;
 
 /**
  * ProposedMeeting
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-01-17T12:23:32.423591700+01:00[Europe/Berlin]", comments = "Generator version: 7.9.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-01-17T12:55:07.564320455+01:00[Europe/Berlin]", comments = "Generator version: 7.9.0")
 public class ProposedMeeting {
 
   private Integer meetingId;
