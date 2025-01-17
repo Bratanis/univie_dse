@@ -1,29 +1,20 @@
 package com.example.Task6.model;
 
-import java.net.URI;
-import java.util.Objects;
-import com.example.Task6.model.Meeting;
-import com.example.Task6.model.Poll;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-
-
-import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
 
 /**
  * MeetingsDashboard
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-01-16T23:12:21.815558952+01:00[Europe/Berlin]", comments = "Generator version: 7.9.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-01-17T12:23:32.423591700+01:00[Europe/Berlin]", comments = "Generator version: 7.9.0")
 public class MeetingsDashboard {
 
   @Valid
