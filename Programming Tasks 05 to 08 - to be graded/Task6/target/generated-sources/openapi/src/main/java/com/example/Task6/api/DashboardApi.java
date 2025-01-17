@@ -28,7 +28,7 @@ import java.util.List;
 import java.util.Map;
 import javax.annotation.Generated;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-01-17T14:09:35.326009267+01:00[Europe/Berlin]", comments = "Generator version: 7.9.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-01-17T15:19:30.908617591+01:00[Europe/Berlin]", comments = "Generator version: 7.9.0")
 @Validated
 @Tag(name = "dashboard", description = "the dashboard API")
 public interface DashboardApi {

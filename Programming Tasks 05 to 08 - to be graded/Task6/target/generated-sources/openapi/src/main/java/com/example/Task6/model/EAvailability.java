@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * The availability status of a participant.
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-01-17T14:09:35.326009267+01:00[Europe/Berlin]", comments = "Generator version: 7.9.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-01-17T15:19:30.908617591+01:00[Europe/Berlin]", comments = "Generator version: 7.9.0")
 public enum EAvailability {
   
   TRUE("true"),

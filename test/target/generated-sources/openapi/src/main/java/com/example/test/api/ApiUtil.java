@@ -1,10 +1,9 @@
 package com.example.test.api;
 
-import java.io.IOException;
-
 import org.springframework.web.context.request.NativeWebRequest;
 
-import jakarta.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 public class ApiUtil {
     public static void setExampleResponse(NativeWebRequest req, String contentType, String example) {

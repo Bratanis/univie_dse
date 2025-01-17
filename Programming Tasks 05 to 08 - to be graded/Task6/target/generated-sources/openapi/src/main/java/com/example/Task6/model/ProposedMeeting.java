@@ -1,32 +1,37 @@
 package com.example.Task6.model;
 
+import java.net.URI;
+import java.util.Objects;
+import com.example.Task6.model.EAvailability;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
-
-import javax.annotation.Generated;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.time.OffsetDateTime;
 import javax.validation.Valid;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-
+import javax.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import javax.annotation.Generated;
 
 /**
  * ProposedMeeting
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-01-17T14:09:35.326009267+01:00[Europe/Berlin]", comments = "Generator version: 7.9.0")
-public class ProposedMeeting extends Meeting{
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-01-17T15:19:30.908617591+01:00[Europe/Berlin]", comments = "Generator version: 7.9.0")
+public class ProposedMeeting {
 
-//  private Integer meetingId;
+  private Integer meetingId;
 
-//  private String subject;
+  private String subject;
 
-//  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-//  private LocalDate date;
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+  private LocalDate date;
 
   @Valid
   private Map<String, EAvailability> participants = new HashMap<>();

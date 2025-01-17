@@ -21,7 +21,7 @@ import javax.annotation.Generated;
  * A delegate to be called by the {@link PollApiController}}.
  * Implement this interface with a {@link org.springframework.stereotype.Service} annotated class.
  */
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-01-17T14:09:35.326009267+01:00[Europe/Berlin]", comments = "Generator version: 7.9.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-01-17T15:19:30.908617591+01:00[Europe/Berlin]", comments = "Generator version: 7.9.0")
 public interface PollApiDelegate {
 
     default Optional<NativeWebRequest> getRequest() {
