@@ -1,7 +1,7 @@
 package com.example.Task6.api;
 
 import com.example.Task6.model.Poll;
-import com.example.Task6.model.PollIdPatchRequest;
+import com.example.Task6.model.PollPollIdPatchRequest;
 import com.example.Task6.model.PollPollIdProposedMeetingMeetingIdPatchRequest;
 import com.example.Task6.model.ProposedMeeting;
 import org.springframework.http.HttpStatus;
@@ -21,7 +21,7 @@ import javax.annotation.Generated;
  * A delegate to be called by the {@link PollApiController}}.
  * Implement this interface with a {@link org.springframework.stereotype.Service} annotated class.
  */
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-01-17T16:45:23.311015830+01:00[Europe/Berlin]", comments = "Generator version: 7.9.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-01-18T19:11:04.541998563+01:00[Europe/Berlin]", comments = "Generator version: 7.9.0")
 public interface PollApiDelegate {
 
     default Optional<NativeWebRequest> getRequest() {
@@ -55,37 +55,37 @@ public interface PollApiDelegate {
     }
 
     /**
-     * DELETE /poll/{id}
+     * DELETE /poll/{pollId}
      * Delete a specific poll
      *
-     * @param id The unique identifier of the poll (required)
+     * @param pollId The unique identifier of the poll (required)
      * @return Successfully deleted a poll (status code 200)
      *         or Bad request - invalid or missing input data (status code 400)
      *         or Unauthorized - authentication required (status code 401)
      *         or Forbidden - insufficient permissions (status code 403)
      *         or Not found - resource does not exist (status code 404)
      *         or Internal server error - unexpected issue on the server (status code 500)
-     * @see PollApi#pollIdDelete
+     * @see PollApi#pollPollIdDelete
      */
-    default ResponseEntity<Void> pollIdDelete(Integer id) {
+    default ResponseEntity<Void> pollPollIdDelete(Integer pollId) {
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
 
     /**
-     * GET /poll/{id}
+     * GET /poll/{pollId}
      * Retrieve details of a specific poll
      *
-     * @param id The unique identifier of the poll (required)
+     * @param pollId The unique identifier of the poll (required)
      * @return Successfully retrieved the poll details (status code 200)
      *         or Bad request - invalid or missing input data (status code 400)
      *         or Unauthorized - authentication required (status code 401)
      *         or Forbidden - insufficient permissions (status code 403)
      *         or Not found - resource does not exist (status code 404)
      *         or Internal server error - unexpected issue on the server (status code 500)
-     * @see PollApi#pollIdGet
+     * @see PollApi#pollPollIdGet
      */
-    default ResponseEntity<Poll> pollIdGet(Integer id) {
+    default ResponseEntity<Poll> pollPollIdGet(Integer pollId) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
@@ -100,21 +100,21 @@ public interface PollApiDelegate {
     }
 
     /**
-     * PATCH /poll/{id}
+     * PATCH /poll/{pollId}
      * Publish a poll by setting its isPublished field to true
      *
-     * @param id The unique identifier of the poll (required)
-     * @param pollIdPatchRequest  (required)
+     * @param pollId The unique identifier of the poll (required)
+     * @param pollPollIdPatchRequest  (required)
      * @return Poll successfully updated (status code 200)
      *         or Bad request - invalid or missing input data (status code 400)
      *         or Unauthorized - authentication required (status code 401)
      *         or Forbidden - insufficient permissions (status code 403)
      *         or Not found - resource does not exist (status code 404)
      *         or Internal server error - unexpected issue on the server (status code 500)
-     * @see PollApi#pollIdPatch
+     * @see PollApi#pollPollIdPatch
      */
-    default ResponseEntity<Poll> pollIdPatch(Integer id,
-        PollIdPatchRequest pollIdPatchRequest) {
+    default ResponseEntity<Poll> pollPollIdPatch(Integer pollId,
+        PollPollIdPatchRequest pollPollIdPatchRequest) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {

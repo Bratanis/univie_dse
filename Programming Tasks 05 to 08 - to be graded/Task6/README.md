@@ -31,15 +31,10 @@
   tests for the openapi-generated server stub. Furthermore the 
   example of an integration test given in the java-openapi-
   generator is very different from the ITs in the other tutorial.
-  An integration test that checks if the endpoint is not 
-  implemented isn't very interesting. From my understanding 
-  a proper integration test requires more than a server stub.
-  I believe that a more detailed explanation of what is expected
-  for the task would be helpful.
+  I settled on implementing the tests as mentioned in the moodle
+  forum: "https://moodle.univie.ac.at/mod/moodleoverflow/discussion.php?d=24803"
 
 
 ## Tools and Sources 
 - All ressources listed in the task description
 - Swagger
-- How to build integration tests:
-  https://www.youtube.com/watch?v=7QCzBwplNIk

@@ -21,7 +21,7 @@ import javax.annotation.Generated;
  */
 
 @JsonTypeName("_poll__pollId__ProposedMeeting__meetingId__patch_request")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-01-17T16:45:23.311015830+01:00[Europe/Berlin]", comments = "Generator version: 7.9.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-01-18T19:11:04.541998563+01:00[Europe/Berlin]", comments = "Generator version: 7.9.0")
 public class PollPollIdProposedMeetingMeetingIdPatchRequest {
 
   private User user;

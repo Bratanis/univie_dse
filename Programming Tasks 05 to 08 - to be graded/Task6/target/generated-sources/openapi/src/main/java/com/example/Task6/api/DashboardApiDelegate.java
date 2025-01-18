@@ -18,11 +18,42 @@ import javax.annotation.Generated;
  * A delegate to be called by the {@link DashboardApiController}}.
  * Implement this interface with a {@link org.springframework.stereotype.Service} annotated class.
  */
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-01-17T16:45:23.311015830+01:00[Europe/Berlin]", comments = "Generator version: 7.9.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-01-18T19:11:04.541998563+01:00[Europe/Berlin]", comments = "Generator version: 7.9.0")
 public interface DashboardApiDelegate {
 
     default Optional<NativeWebRequest> getRequest() {
         return Optional.empty();
+    }
+
+    /**
+     * GET /dashboard/export
+     * Retrieve all data, including scheduled meetings  and ongoing polls in JSON format 
+     *
+     * @return Exported data in JSON format. (status code 200)
+     *         or Bad request - invalid or missing input data (status code 400)
+     *         or Unauthorized - authentication required (status code 401)
+     *         or Forbidden - insufficient permissions (status code 403)
+     *         or Not found - resource does not exist (status code 404)
+     *         or Internal server error - unexpected issue on the server (status code 500)
+     * @see DashboardApi#dashboardExportGet
+     */
+    default ResponseEntity<MeetingsDashboard> dashboardExportGet() {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"meetings\" : [ { \"meetingId\" : 1, \"subject\" : \"Team Sync\", \"date\" : \"2025-01-20\" }, { \"meetingId\" : 2, \"subject\" : \"Project Kickoff\", \"date\" : \"2025-01-22\" } ], \"polls\" : [ { \"pollId\" : 101, \"proposals\" : [ { \"meetingId\" : 11, \"subject\" : \"Design Review\", \"date\" : \"2025-01-25\", \"participants\" : { \"Alice\" : \"yes\", \"Bob\" : \"maybe\" } } ], \"isPublished\" : false } ] }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+                if (mediaType.isCompatibleWith(MediaType.valueOf("text/csv"))) {
+                    String exampleString = "Custom MIME type example not yet supported: text/csv";
+                    ApiUtil.setExampleResponse(request, "text/csv", exampleString);
+                    break;
+                }
+            }
+        });
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
     }
 
     /**

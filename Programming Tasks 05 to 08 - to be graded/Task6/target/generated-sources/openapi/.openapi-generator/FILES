@@ -9,7 +9,7 @@ src/main/java/com/example/Task6/model/EAvailability.java
 src/main/java/com/example/Task6/model/Meeting.java
 src/main/java/com/example/Task6/model/MeetingsDashboard.java
 src/main/java/com/example/Task6/model/Poll.java
-src/main/java/com/example/Task6/model/PollIdPatchRequest.java
+src/main/java/com/example/Task6/model/PollPollIdPatchRequest.java
 src/main/java/com/example/Task6/model/PollPollIdProposedMeetingMeetingIdPatchRequest.java
 src/main/java/com/example/Task6/model/ProposedMeeting.java
 src/main/java/com/example/Task6/model/User.java

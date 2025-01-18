@@ -57,6 +57,33 @@ paths:
         500:
           $ref: "#/components/responses/InternalServerError"
                   
+  /dashboard/export:
+    get:
+      description: >
+                     Retrieve all data, including scheduled meetings 
+                     and ongoing polls in JSON format
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MeetingsDashboard"
+            text/csv:
+              schema:
+                format: binary
+                type: string
+          description: Exported data in JSON format.
+        400:
+          $ref: "#/components/responses/BadRequest"
+        401:
+          $ref: "#/components/responses/Unauthorized"
+        403:
+          $ref: "#/components/responses/Forbidden"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/InternalServerError"
+
 
   /meeting:
 
@@ -122,9 +149,9 @@ paths:
           $ref: "#/components/responses/InternalServerError"
     
           
-  /meeting/{id}:
+  /meeting/{meetingId}:
     parameters:
-      - name: id
+      - name: meetingId
         in: path
         required: true
         schema:
@@ -241,9 +268,9 @@ paths:
         500:
           $ref: "#/components/responses/InternalServerError"
 
-  /poll/{id}:
+  /poll/{pollId}:
     parameters:
-      - name: id
+      - name: pollId
         in: path
         required: true
         schema:
@@ -319,39 +346,6 @@ paths:
         500:
           $ref: "#/components/responses/InternalServerError"
       
- # /poll/{id}/export:
- #   get:
- #     description: Retrieve all data related to the poll in a downloadable format
- #       (e.g., JSON or CSV).
- #     operationId: exportPoll
- #     parameters:
- #     - description: The unique identifier of the poll to export.
- #       in: path
- #       name: id
- #       required: true
- #       schema:
- #         type: string
- #     - description: The format to export the data (e.g., json, csv).
- #       in: query
- #       name: format
- #       required: false
- #       schema:
- #         default: json
- #         enum:
- #         - json
- #         - csv
- #         type: string
- #     responses:
- #       '200':
- #         content:
- #           application/json:
- #             schema:
- #               type: object
- #           text/csv:
- #             schema:
- #               format: binary
- #               type: string
- #         description: Exported data in the requested format.
 
   /poll/{pollId}/ProposedMeeting:
     parameters:

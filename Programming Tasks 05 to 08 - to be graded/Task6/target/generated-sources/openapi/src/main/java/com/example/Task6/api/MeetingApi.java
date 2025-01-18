@@ -28,7 +28,7 @@ import java.util.List;
 import java.util.Map;
 import javax.annotation.Generated;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-01-17T16:45:23.311015830+01:00[Europe/Berlin]", comments = "Generator version: 7.9.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-01-18T19:11:04.541998563+01:00[Europe/Berlin]", comments = "Generator version: 7.9.0")
 @Validated
 @Tag(name = "meeting", description = "the meeting API")
 public interface MeetingApi {
@@ -76,10 +76,10 @@ public interface MeetingApi {
 
 
     /**
-     * DELETE /meeting/{id}
+     * DELETE /meeting/{meetingId}
      * Delete a specific meeting
      *
-     * @param id The unique identifier of the meeting (required)
+     * @param meetingId The unique identifier of the meeting (required)
      * @return Successfully deleted a meeting (status code 200)
      *         or Bad request - invalid or missing input data (status code 400)
      *         or Unauthorized - authentication required (status code 401)
@@ -88,7 +88,7 @@ public interface MeetingApi {
      *         or Internal server error - unexpected issue on the server (status code 500)
      */
     @Operation(
-        operationId = "meetingIdDelete",
+        operationId = "meetingMeetingIdDelete",
         description = "Delete a specific meeting",
         responses = {
             @ApiResponse(responseCode = "200", description = "Successfully deleted a meeting"),
@@ -101,21 +101,21 @@ public interface MeetingApi {
     )
     @RequestMapping(
         method = RequestMethod.DELETE,
-        value = "/meeting/{id}"
+        value = "/meeting/{meetingId}"
     )
     
-    default ResponseEntity<Void> meetingIdDelete(
-        @Min(0) @Max(999) @Parameter(name = "id", description = "The unique identifier of the meeting", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<Void> meetingMeetingIdDelete(
+        @Min(0) @Max(999) @Parameter(name = "meetingId", description = "The unique identifier of the meeting", required = true, in = ParameterIn.PATH) @PathVariable("meetingId") Integer meetingId
     ) {
-        return getDelegate().meetingIdDelete(id);
+        return getDelegate().meetingMeetingIdDelete(meetingId);
     }
 
 
     /**
-     * GET /meeting/{id}
+     * GET /meeting/{meetingId}
      * Retrieve details of a specific meeting
      *
-     * @param id The unique identifier of the meeting (required)
+     * @param meetingId The unique identifier of the meeting (required)
      * @return Successfully retrieved the meeting details (status code 200)
      *         or Bad request - invalid or missing input data (status code 400)
      *         or Unauthorized - authentication required (status code 401)
@@ -124,7 +124,7 @@ public interface MeetingApi {
      *         or Internal server error - unexpected issue on the server (status code 500)
      */
     @Operation(
-        operationId = "meetingIdGet",
+        operationId = "meetingMeetingIdGet",
         description = "Retrieve details of a specific meeting",
         responses = {
             @ApiResponse(responseCode = "200", description = "Successfully retrieved the meeting details", content = {
@@ -139,14 +139,14 @@ public interface MeetingApi {
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/meeting/{id}",
+        value = "/meeting/{meetingId}",
         produces = { "application/json" }
     )
     
-    default ResponseEntity<Meeting> meetingIdGet(
-        @Min(0) @Max(999) @Parameter(name = "id", description = "The unique identifier of the meeting", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<Meeting> meetingMeetingIdGet(
+        @Min(0) @Max(999) @Parameter(name = "meetingId", description = "The unique identifier of the meeting", required = true, in = ParameterIn.PATH) @PathVariable("meetingId") Integer meetingId
     ) {
-        return getDelegate().meetingIdGet(id);
+        return getDelegate().meetingMeetingIdGet(meetingId);
     }
 
 

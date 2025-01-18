@@ -6,7 +6,7 @@
 package com.example.Task6.api;
 
 import com.example.Task6.model.Poll;
-import com.example.Task6.model.PollIdPatchRequest;
+import com.example.Task6.model.PollPollIdPatchRequest;
 import com.example.Task6.model.PollPollIdProposedMeetingMeetingIdPatchRequest;
 import com.example.Task6.model.ProposedMeeting;
 import io.swagger.v3.oas.annotations.ExternalDocumentation;
@@ -31,7 +31,7 @@ import java.util.List;
 import java.util.Map;
 import javax.annotation.Generated;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-01-17T16:45:23.311015830+01:00[Europe/Berlin]", comments = "Generator version: 7.9.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-01-18T19:11:04.541998563+01:00[Europe/Berlin]", comments = "Generator version: 7.9.0")
 @Validated
 @Tag(name = "poll", description = "the poll API")
 public interface PollApi {
@@ -79,10 +79,10 @@ public interface PollApi {
 
 
     /**
-     * DELETE /poll/{id}
+     * DELETE /poll/{pollId}
      * Delete a specific poll
      *
-     * @param id The unique identifier of the poll (required)
+     * @param pollId The unique identifier of the poll (required)
      * @return Successfully deleted a poll (status code 200)
      *         or Bad request - invalid or missing input data (status code 400)
      *         or Unauthorized - authentication required (status code 401)
@@ -91,7 +91,7 @@ public interface PollApi {
      *         or Internal server error - unexpected issue on the server (status code 500)
      */
     @Operation(
-        operationId = "pollIdDelete",
+        operationId = "pollPollIdDelete",
         description = "Delete a specific poll",
         responses = {
             @ApiResponse(responseCode = "200", description = "Successfully deleted a poll"),
@@ -104,21 +104,21 @@ public interface PollApi {
     )
     @RequestMapping(
         method = RequestMethod.DELETE,
-        value = "/poll/{id}"
+        value = "/poll/{pollId}"
     )
     
-    default ResponseEntity<Void> pollIdDelete(
-        @Min(0) @Max(999) @Parameter(name = "id", description = "The unique identifier of the poll", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<Void> pollPollIdDelete(
+        @Min(0) @Max(999) @Parameter(name = "pollId", description = "The unique identifier of the poll", required = true, in = ParameterIn.PATH) @PathVariable("pollId") Integer pollId
     ) {
-        return getDelegate().pollIdDelete(id);
+        return getDelegate().pollPollIdDelete(pollId);
     }
 
 
     /**
-     * GET /poll/{id}
+     * GET /poll/{pollId}
      * Retrieve details of a specific poll
      *
-     * @param id The unique identifier of the poll (required)
+     * @param pollId The unique identifier of the poll (required)
      * @return Successfully retrieved the poll details (status code 200)
      *         or Bad request - invalid or missing input data (status code 400)
      *         or Unauthorized - authentication required (status code 401)
@@ -127,7 +127,7 @@ public interface PollApi {
      *         or Internal server error - unexpected issue on the server (status code 500)
      */
     @Operation(
-        operationId = "pollIdGet",
+        operationId = "pollPollIdGet",
         description = "Retrieve details of a specific poll",
         responses = {
             @ApiResponse(responseCode = "200", description = "Successfully retrieved the poll details", content = {
@@ -142,23 +142,23 @@ public interface PollApi {
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/poll/{id}",
+        value = "/poll/{pollId}",
         produces = { "application/json" }
     )
     
-    default ResponseEntity<Poll> pollIdGet(
-        @Min(0) @Max(999) @Parameter(name = "id", description = "The unique identifier of the poll", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id
+    default ResponseEntity<Poll> pollPollIdGet(
+        @Min(0) @Max(999) @Parameter(name = "pollId", description = "The unique identifier of the poll", required = true, in = ParameterIn.PATH) @PathVariable("pollId") Integer pollId
     ) {
-        return getDelegate().pollIdGet(id);
+        return getDelegate().pollPollIdGet(pollId);
     }
 
 
     /**
-     * PATCH /poll/{id}
+     * PATCH /poll/{pollId}
      * Publish a poll by setting its isPublished field to true
      *
-     * @param id The unique identifier of the poll (required)
-     * @param pollIdPatchRequest  (required)
+     * @param pollId The unique identifier of the poll (required)
+     * @param pollPollIdPatchRequest  (required)
      * @return Poll successfully updated (status code 200)
      *         or Bad request - invalid or missing input data (status code 400)
      *         or Unauthorized - authentication required (status code 401)
@@ -167,7 +167,7 @@ public interface PollApi {
      *         or Internal server error - unexpected issue on the server (status code 500)
      */
     @Operation(
-        operationId = "pollIdPatch",
+        operationId = "pollPollIdPatch",
         description = "Publish a poll by setting its isPublished field to true",
         responses = {
             @ApiResponse(responseCode = "200", description = "Poll successfully updated", content = {
@@ -182,16 +182,16 @@ public interface PollApi {
     )
     @RequestMapping(
         method = RequestMethod.PATCH,
-        value = "/poll/{id}",
+        value = "/poll/{pollId}",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
     
-    default ResponseEntity<Poll> pollIdPatch(
-        @Min(0) @Max(999) @Parameter(name = "id", description = "The unique identifier of the poll", required = true, in = ParameterIn.PATH) @PathVariable("id") Integer id,
-        @Parameter(name = "PollIdPatchRequest", description = "", required = true) @Valid @RequestBody PollIdPatchRequest pollIdPatchRequest
+    default ResponseEntity<Poll> pollPollIdPatch(
+        @Min(0) @Max(999) @Parameter(name = "pollId", description = "The unique identifier of the poll", required = true, in = ParameterIn.PATH) @PathVariable("pollId") Integer pollId,
+        @Parameter(name = "PollPollIdPatchRequest", description = "", required = true) @Valid @RequestBody PollPollIdPatchRequest pollPollIdPatchRequest
     ) {
-        return getDelegate().pollIdPatch(id, pollIdPatchRequest);
+        return getDelegate().pollPollIdPatch(pollId, pollPollIdPatchRequest);
     }
 
 
